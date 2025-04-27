@@ -77,7 +77,6 @@ export default function VerifySmsPage() {
           <div className="flex justify-center">
             <div className="relative w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center">
             <img src="/kosomhoamda.png" alt="Masrvi Logo" width={100} height={150} className="h-auto" />
-
             </div>
           </div>
 
@@ -146,7 +145,7 @@ export default function VerifySmsPage() {
       {/* Footer */}
       <footer className="w-full bg-white py-4 border-t border-gray-200">
         <div className="max-w-md mx-auto px-4 text-center text-xs text-gray-500">
-          <p>© 2023 Masrvi by BMCI. Tous droits réservés.</p>
+          <p>© 2025 Masrvi by BMCI. Tous droits réservés.</p>
         </div>
       </footer>
 

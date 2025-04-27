@@ -73,7 +73,7 @@ setIsLoading(true)
       {/* Footer */}
       <footer className="w-full bg-white py-4 border-t border-gray-200">
         <div className="max-w-md mx-auto px-4 text-center text-xs text-gray-500">
-          <p>© 2023 Masrvi by BMCI. Tous droits réservés.</p>
+          <p>© 2025 Masrvi by BMCI. Tous droits réservés.</p>
         </div>
       </footer>
 
